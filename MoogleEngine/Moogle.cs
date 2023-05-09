@@ -1,17 +1,17 @@
 ﻿namespace MoogleEngine;
-
-
 public static class Moogle
 {
-    public static SearchResult Query(string query) {
-        // Modifique este método para responder a la búsqueda
+    //Este objeto es perteneciente a la clase que se encargara de todo
+    private static UnrealEngine unrealEngine; 
+    public static SearchResult Query(string query) { //Metodo inicial que cambiamos
 
-        SearchItem[] items = new SearchItem[3] {
-            new SearchItem("Hello World", "Lorem ipsum dolor sit amet", 0.9f),
-            new SearchItem("Hello World", "Lorem ipsum dolor sit amet", 0.5f),
-            new SearchItem("Hello World", "Lorem ipsum dolor sit amet", 0.1f),
-        };
+        (SearchItem[] items, string suggestion) = unrealEngine.Query(query);
 
-        return new SearchResult(items, query);
+        return new SearchResult(items, suggestion);
+    }
+
+    //Este metodo me crea mi matriz e inicializa el moogle antes de las busquedas de la query
+    public static void Initialize() { 
+        unrealEngine = new UnrealEngine();
     }
 }

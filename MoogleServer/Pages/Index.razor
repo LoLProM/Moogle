@@ -10,7 +10,7 @@
 
 @if (!string.IsNullOrEmpty(result.Suggestion)) {
     <div class="suggestion">
-        <p>¿Quisite decir <strong><a href="#">@result.Suggestion</a></strong>?</p>
+        <p>¿Tal vez quisiste decir <strong><a href="#" @onclick="RunSuggestionQuery">@result.Suggestion</a></strong>?</p>
     </div>
 }
 
@@ -29,7 +29,14 @@
     private string query = "";
     private SearchResult result = new SearchResult();
 
+    private void RunSuggestionQuery() {
+        query = result.Suggestion;
+        RunQuery();
+    }
+
     private void RunQuery() {
         result = Moogle.Query(query);
     }
 }
+
+
