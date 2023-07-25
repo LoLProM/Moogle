@@ -1,7 +1,7 @@
 namespace MoogleEngine;
 public class UnrealEngine
 {
-    public static string path = Directory.GetCurrentDirectory() + "..\\..\\Content";
+    public static string path = Directory.GetCurrentDirectory() + "..//..//Content";
     private Document[] documents;
     private Dictionary<string, (int frequency, int index)> documentsFrequencyAndIndexes;
     private double[,] TFIDF;
